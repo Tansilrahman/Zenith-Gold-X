@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#B8860B" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Zenith Gold X" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Zenith Gold X — Civic waste management and eco-rewards platform. Submit waste, earn ZGX tokens, grow your garden." />
+  <meta name="keywords" content="ZGX, waste management, eco rewards, civic, sustainability" />
+
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <title>Zenith Gold X</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(r => console.log('[ZGX] SW registered:', r.scope))
+          .catch(e => console.warn('[ZGX] SW failed:', e));
+      });
+    }
+  </script>
+</body>
+
+</html>

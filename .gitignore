@@ -1,0 +1,9 @@
+node_modules/
+.env*
+uploads/
+*.db
+*.sqlite*
+*.pid
+dist/
+dist-electron/
+.DS_Store

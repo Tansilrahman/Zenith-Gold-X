@@ -1,0 +1,30 @@
+{
+    "name": "Zenith Gold X",
+    "short_name": "Zenith Gold X",
+    "description": "Civic waste management & eco-rewards platform",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0a0f",
+    "theme_color": "#B8860B",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/logo.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": [
+        "utilities",
+        "productivity",
+        "lifestyle"
+    ],
+    "lang": "en"
+}
