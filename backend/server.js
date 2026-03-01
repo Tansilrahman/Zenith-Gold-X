@@ -79,9 +79,24 @@ app.use('/api/garden', gardenRoutes);
 app.use('/api/withdrawals', withdrawalRoutes);
 app.use('/api', analyticsRoutes);
 
-app.get('/', (_req, res) => {
+app.get('/api', (_req, res) => {
   res.json({ message: 'Zenith Gold X API is running', status: 'ok' });
 });
+
+// ---------------------------------------------------------------
+// Monolithic Frontend Serving (For Judges/Vercel/Render)
+// ---------------------------------------------------------------
+const frontendDist = path.join(process.cwd(), '../frontend/dist');
+if (fs.existsSync(frontendDist)) {
+  app.use(express.static(frontendDist));
+  app.get('*', (req, res) => {
+    if (!req.path.startsWith('/api') && !req.path.startsWith('/uploads')) {
+      res.sendFile(path.join(frontendDist, 'index.html'));
+    } else {
+      res.status(404).json({ message: 'Endpoint not found' });
+    }
+  });
+}
 
 // ---------------------------------------------------------------
 // PHASE 6 — Global Error Handler (catches everything)
